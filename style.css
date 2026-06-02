@@ -145,6 +145,7 @@ p {
   margin: 0 auto;
   padding: 96px 0 0;
   scroll-margin-top: 104px;
+  transition: transform 520ms ease;
 }
 
 .section::before {
@@ -162,6 +163,15 @@ p {
 
 .section.section-highlight::before {
   opacity: 1;
+  transform: scale(1);
+}
+
+.section.is-in-view {
+  transform: translateY(-4px);
+}
+
+.section.is-in-view::before {
+  opacity: 0.42;
   transform: scale(1);
 }
 

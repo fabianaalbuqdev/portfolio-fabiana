@@ -39,6 +39,7 @@ if (menuToggle && nav) {
 }
 
 const revealElements = document.querySelectorAll(".reveal");
+const sections = document.querySelectorAll(".section");
 
 if ("IntersectionObserver" in window) {
   const observer = new IntersectionObserver(
@@ -59,6 +60,21 @@ if ("IntersectionObserver" in window) {
     element.style.setProperty("--reveal-delay", `${Math.min(index * 55, 330)}ms`);
     observer.observe(element);
   });
+
+  const sectionObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        entry.target.classList.toggle("is-in-view", entry.isIntersecting);
+      });
+    },
+    {
+      rootMargin: "-35% 0px -35% 0px",
+      threshold: 0,
+    },
+  );
+
+  sections.forEach((section) => sectionObserver.observe(section));
 } else {
   revealElements.forEach((element) => element.classList.add("is-visible"));
+  sections.forEach((section) => section.classList.add("is-in-view"));
 }
