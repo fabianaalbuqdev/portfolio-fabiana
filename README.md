@@ -22,8 +22,4 @@ O projeto apresenta uma página única, direta e responsiva, com:
 
 ## Como Visualizar
 
-Abra o arquivo `index.html` no navegador.
-
-## Publicação
-
 (https://fabianaalbuqdev.github.io/portfolio-fabiana/)
