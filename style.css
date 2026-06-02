@@ -378,6 +378,10 @@ h3 {
     var(--card);
 }
 
+.resume-section {
+  margin-top: 36px;
+}
+
 .cta-section p {
   margin-top: 12px;
 }
