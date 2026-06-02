@@ -140,9 +140,29 @@ p {
 }
 
 .section {
+  position: relative;
   width: min(1120px, calc(100% - 32px));
   margin: 0 auto;
   padding: 96px 0 0;
+  scroll-margin-top: 104px;
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  inset: 58px -18px -18px;
+  z-index: -1;
+  border-radius: 34px;
+  background: radial-gradient(circle at center, rgba(216, 180, 254, 0.18), transparent 62%);
+  opacity: 0;
+  transform: scale(0.96);
+  transition: opacity 420ms ease, transform 420ms ease;
+  pointer-events: none;
+}
+
+.section.section-highlight::before {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .hero {
@@ -401,13 +421,13 @@ h3 {
 
 .reveal {
   opacity: 0;
-  transform: translateY(22px);
-  transition: opacity 700ms ease, transform 700ms ease;
+  transform: translateY(34px) scale(0.97);
+  transition: opacity 760ms ease var(--reveal-delay, 0ms), transform 760ms ease var(--reveal-delay, 0ms);
 }
 
 .reveal.is-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
 @media (max-width: 880px) {

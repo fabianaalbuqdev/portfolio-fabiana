@@ -15,10 +15,25 @@ if (menuToggle && nav) {
   });
 
   navLinks.forEach((link) => {
-    link.addEventListener("click", () => {
+    link.addEventListener("click", (event) => {
+      const targetId = link.getAttribute("href");
+      const targetSection = targetId ? document.querySelector(targetId) : null;
+
       nav.classList.remove("is-open");
       document.body.classList.remove("menu-open");
       menuToggle.setAttribute("aria-expanded", "false");
+
+      if (targetSection) {
+        event.preventDefault();
+        targetSection.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+
+        targetSection.classList.remove("section-highlight");
+        window.setTimeout(() => targetSection.classList.add("section-highlight"), 320);
+        window.setTimeout(() => targetSection.classList.remove("section-highlight"), 1500);
+      }
     });
   });
 }
@@ -40,7 +55,10 @@ if ("IntersectionObserver" in window) {
     },
   );
 
-  revealElements.forEach((element) => observer.observe(element));
+  revealElements.forEach((element, index) => {
+    element.style.setProperty("--reveal-delay", `${Math.min(index * 55, 330)}ms`);
+    observer.observe(element);
+  });
 } else {
   revealElements.forEach((element) => element.classList.add("is-visible"));
 }
