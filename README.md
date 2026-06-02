@@ -26,4 +26,4 @@ Abra o arquivo `index.html` no navegador.
 
 ## Publicação
 
-Este projeto pode ser publicado pelo GitHub Pages após ser enviado para um repositório público no GitHub.
+(https://fabianaalbuqdev.github.io/portfolio-fabiana/)
