@@ -293,6 +293,15 @@ h3 {
   color: var(--text);
   font-weight: 700;
   background: rgba(168, 85, 247, 0.12);
+  cursor: default;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.tag-grid span:hover {
+  transform: scale(1.1);
+  border-color: rgba(216, 180, 254, 0.58);
+  background: rgba(168, 85, 247, 0.22);
+  box-shadow: 0 0 22px rgba(216, 180, 254, 0.28);
 }
 
 .cards-grid,
