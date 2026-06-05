@@ -131,9 +131,19 @@
 
       <div class="project-grid">
         <article class="project-card reveal">
-          <span class="project-status">Em breve</span>
-          <h3>Projeto Salesforce</h3>
-          <p>Espaço reservado para um projeto prático envolvendo CRM, dados, automações ou administração Salesforce.</p>
+          <span class="project-status active">Modelo de projeto</span>
+          <h3>Automação de Leads no Salesforce</h3>
+          <p>Exemplo de projeto criado para demonstrar como apresentar soluções feitas em uma Developer Edition.</p>
+          <div class="project-tags" aria-label="Recursos usados no projeto">
+            <span>Flow</span>
+            <span>Leads</span>
+            <span>Validações</span>
+          </div>
+          <div class="project-actions">
+            <button class="button secondary project-detail-button" type="button" data-modal-target="salesforce-project-modal">
+              Ver detalhes
+            </button>
+          </div>
         </article>
         <article class="project-card reveal">
           <span class="project-status">Em breve</span>
@@ -144,9 +154,68 @@
           <span class="project-status active">Em andamento</span>
           <h3>Estudos e Trailhead</h3>
           <p>Registro da evolução nos estudos de Salesforce, conceitos de CRM e fundamentos da plataforma.</p>
+          <div class="project-actions">
+            <a class="button secondary" href="https://www.salesforce.com/trailblazer/fabiana-de-brito-dev" target="_blank" rel="noopener">
+              Ver Trailblazer
+            </a>
+          </div>
         </article>
       </div>
     </section>
+
+    <div class="project-modal" id="salesforce-project-modal" aria-hidden="true">
+      <div class="modal-overlay" data-modal-close></div>
+      <section class="modal-content" role="dialog" aria-modal="true" aria-labelledby="salesforce-project-title">
+        <button class="modal-close" type="button" aria-label="Fechar detalhes do projeto" data-modal-close>&times;</button>
+        <span class="project-status active">Exemplo Salesforce</span>
+        <h2 id="salesforce-project-title">Automação de Leads no Salesforce</h2>
+        <p>
+          Projeto fictício usado como modelo para apresentar uma solução criada em uma Salesforce Developer Edition.
+          Ele mostra como documentar uma entrega mesmo quando a org não pode ser acessada publicamente.
+        </p>
+
+        <div class="modal-grid">
+          <article>
+            <h3>Objetivo</h3>
+            <p>Organizar o cadastro de leads e automatizar uma primeira etapa de qualificação comercial.</p>
+          </article>
+          <article>
+            <h3>Problema simulado</h3>
+            <p>Uma equipe comercial recebe novos leads, mas precisa padronizar informações antes do contato inicial.</p>
+          </article>
+          <article>
+            <h3>O que foi construído</h3>
+            <p>Campos personalizados, regras de validação, Flow de atualização e relatório para acompanhar leads qualificados.</p>
+          </article>
+          <article>
+            <h3>Como adaptar</h3>
+            <p>Substitua este texto por prints, regras de negócio, recursos Salesforce usados e aprendizados do seu projeto real.</p>
+          </article>
+        </div>
+
+        <div class="developer-preview">
+          <h3>Visualização da Developer Edition</h3>
+          <p>
+            Como a org Salesforce não fica pública, esta área serve para mostrar o projeto por meio de prints
+            da Developer Edition.
+          </p>
+          <div class="preview-grid" aria-label="Espaços reservados para prints da Developer Edition">
+            <div class="preview-placeholder">(Print do Flow Builder)</div>
+            <div class="preview-placeholder">(Print do objeto Lead com campos personalizados)</div>
+            <div class="preview-placeholder">(Print do relatório ou dashboard)</div>
+          </div>
+        </div>
+
+        <div class="project-tags modal-tags" aria-label="Tecnologias e recursos Salesforce">
+          <span>Salesforce Developer Edition</span>
+          <span>Flow Builder</span>
+          <span>Lead</span>
+          <span>Campos personalizados</span>
+          <span>Regras de validação</span>
+          <span>Relatórios</span>
+        </div>
+      </section>
+    </div>
 
     <section id="curriculo" class="section cta-section resume-section reveal">
       <div>
