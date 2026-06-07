@@ -111,8 +111,67 @@ modalCloseButtons.forEach((button) => {
   button.addEventListener("click", closeModal);
 });
 
+const imageLightbox = document.querySelector("#image-lightbox");
+const lightboxImage = document.querySelector(".lightbox-image");
+const lightboxCaption = document.querySelector(".lightbox-caption");
+const previewExpandButtons = document.querySelectorAll("[data-preview-expand]");
+const lightboxCloseButtons = document.querySelectorAll("[data-lightbox-close]");
+let isLightboxOpen = false;
+
+const closeLightbox = () => {
+  if (!imageLightbox || !lightboxImage || !lightboxCaption) {
+    return;
+  }
+
+  imageLightbox.classList.remove("is-open");
+  imageLightbox.setAttribute("aria-hidden", "true");
+  lightboxImage.removeAttribute("src");
+  lightboxImage.alt = "";
+  lightboxCaption.textContent = "";
+  isLightboxOpen = false;
+
+  if (!activeModal) {
+    document.body.classList.remove("menu-open");
+  }
+};
+
+const openLightbox = (imageSrc, imageAlt) => {
+  if (!imageLightbox || !lightboxImage || !lightboxCaption) {
+    return;
+  }
+
+  lightboxImage.src = imageSrc;
+  lightboxImage.alt = imageAlt;
+  lightboxCaption.textContent = imageAlt;
+  imageLightbox.classList.add("is-open");
+  imageLightbox.setAttribute("aria-hidden", "false");
+  document.body.classList.add("menu-open");
+  isLightboxOpen = true;
+};
+
+previewExpandButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const previewImage = button.querySelector("img");
+
+    if (!previewImage?.src) {
+      return;
+    }
+
+    openLightbox(previewImage.src, previewImage.alt || "Print do projeto Salesforce");
+  });
+});
+
+lightboxCloseButtons.forEach((button) => {
+  button.addEventListener("click", closeLightbox);
+});
+
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
+    if (isLightboxOpen) {
+      closeLightbox();
+      return;
+    }
+
     closeModal();
   }
 });

@@ -197,12 +197,21 @@
           <h3>Visualização da Developer Edition</h3>
           <p>
             Como a org Salesforce não fica pública, esta área serve para mostrar o projeto por meio de prints
-            da Developer Edition.
+            da Developer Edition. Clique na imagem para ampliar.
           </p>
           <div class="preview-grid" aria-label="Espaços reservados para prints da Developer Edition">
-            <div class="preview-placeholder">(Print do Flow Builder)</div>
-            <div class="preview-placeholder">(Print do objeto Lead com campos personalizados)</div>
-            <div class="preview-placeholder">(Print do relatório ou dashboard)</div>
+            <button class="preview-item" type="button" data-preview-expand aria-label="Ampliar print do Flow Builder">
+              <!-- Troque o span abaixo por: <img src="assets/seu-print.png" alt="Print do Flow Builder"> -->
+              <span class="preview-placeholder">(Print do Flow Builder)</span>
+            </button>
+            <button class="preview-item" type="button" data-preview-expand aria-label="Ampliar print do objeto Lead">
+              <!-- Troque o span abaixo por: <img src="assets/seu-print.png" alt="Print do objeto Lead"> -->
+              <span class="preview-placeholder">(Print do objeto Lead com campos personalizados)</span>
+            </button>
+            <button class="preview-item" type="button" data-preview-expand aria-label="Ampliar print do relatório">
+              <!-- Troque o span abaixo por: <img src="assets/seu-print.png" alt="Print do relatório ou dashboard"> -->
+              <span class="preview-placeholder">(Print do relatório ou dashboard)</span>
+            </button>
           </div>
         </div>
 
@@ -240,6 +249,15 @@
       </div>
     </section>
   </main>
+
+  <div class="image-lightbox" id="image-lightbox" aria-hidden="true">
+    <div class="lightbox-overlay" data-lightbox-close></div>
+    <figure class="lightbox-content">
+      <button class="lightbox-close" type="button" aria-label="Fechar imagem ampliada" data-lightbox-close>&times;</button>
+      <img class="lightbox-image" src="" alt="">
+      <figcaption class="lightbox-caption"></figcaption>
+    </figure>
+  </div>
 
   <footer class="footer">
     <p>© <span id="current-year"></span> Fabiana De Brito. Portfólio profissional.</p>
